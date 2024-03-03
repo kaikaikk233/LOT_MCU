@@ -76,7 +76,7 @@ Page({
         const chat = that.replyWithDataOrSettings(msg.message);
         if (!chat) {
             // 如果不是设置或查询指令，将消息发送给 ChatGPT
-            that.sendMessageToChatGPT(this.data.content).then((replyMsg) => {
+            that.sendMessageToChatGPT(msg.message).then((replyMsg) => {
                 that.updateChatList(replyMsg);
             }).catch((error) => {
                 console.error("Error sending message to ChatGPT:", error);
@@ -969,7 +969,8 @@ Page({
                 role: "user",
                 content: message
             });
-            console.log(conversationHistory)
+            // console.log(message)
+            // console.log(conversationHistory)
             wx.request({
                 url: 'https://migow.club/v1/chat/completions',
                 method: 'POST',
@@ -978,7 +979,7 @@ Page({
                     'Authorization': 'Bearer sk-ut2khvQ2Z88BounwB73b752f949c407192Fb0077FaC3AfF3'
                 },
                 data: {
-                    model: "gpt-4-vision-preview",
+                    model: "glm-4",
                     messages: conversationHistory,
                     max_tokens: 1024,
                 },
@@ -993,6 +994,10 @@ Page({
                             type: 'text',
                             date: `${new Date().getMonth() + 1}-${new Date().getDate()} ${new Date().getHours()}:${new Date().getMinutes()}`
                         };
+                        conversationHistory.push({
+                            role: "assistant",
+                            content: res.data.choices[0]["message"]["content"]
+                        });
                         resolve(replyMsg);
                     } else {
                         reject('Failed to get valid response from ChatGPT');
