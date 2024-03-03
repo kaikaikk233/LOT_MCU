@@ -969,6 +969,7 @@ Page({
                 role: "user",
                 content: message
             });
+            console.log(conversationHistory)
             wx.request({
                 url: 'https://migow.club/v1/chat/completions',
                 method: 'POST',
