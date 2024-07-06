@@ -1,7 +1,6 @@
 <!--pages/home/home.wxml-->
 
 <view class="page-container">
-
     <!-- 天气部分 -->
     <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="500" bindchange="bindchange">
         <block wx:for="{{pages}}" wx:key="unique">
@@ -40,7 +39,7 @@
                             </view>
 
                             <view class="header-temperature">
-                                <view>明天温度：{{weatherInfo.daily[1].high}} - {{weatherInfo.daily[1].low}}℃</view>
+                                <view>明天温度：{{weatherInfo.daily[1].low}} - {{weatherInfo.daily[1].high}}℃</view>
                             </view>
 
                             <view class="header-phenomena">
@@ -65,7 +64,7 @@
                             </view>
 
                             <view class="header-temperature">
-                                <view>后天温度：{{weatherInfo.daily[2].high}} - {{weatherInfo.daily[2].low}}℃</view>
+                                <view>后天温度：{{weatherInfo.daily[2].low}} - {{weatherInfo.daily[2].high}}℃</view>
                             </view>
 
                             <view class="header-phenomena">
@@ -86,6 +85,40 @@
         </block>
     </swiper>
 
+    <!-- 大棚设置 -->
+    <view class="threshoil_title">
+        <text>大棚参数</text>
+    </view>
+
+    <!-- 设置部分 -->
+    <view class="data">
+        <!-- 农作物 -->
+        <view class="data_card">
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/corp.png" />
+            <view>
+                <view class="data_card_title">
+                    种植类型
+                </view>
+                <view class="data_card_corp_value">
+                    {{cropType}}
+                </view>
+            </view>
+        </view>
+
+        <!-- 更新间隔 -->
+        <view class="data_card">
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/time.png" />
+            <view>
+                <view class="data_card_title">
+                    更新间隔
+                </view>
+                <view class="data_card_value">
+                    {{updata_time}}s
+                </view>
+            </view>
+        </view>
+    </view>
+
     <!-- 环境数据 -->
     <view class="threshoil_title">
         <text>环境数据</text>
@@ -95,7 +128,7 @@
     <view class="data">
         <!-- 温度 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/temperature.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/temperature.png" />
             <view>
                 <view class="data_card_title">
                     温度
@@ -108,7 +141,7 @@
 
         <!-- 湿度 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/humidity.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/humidity.png" />
             <view>
                 <view class="data_card_title">
                     湿度
@@ -121,7 +154,7 @@
 
         <!-- 土壤湿度 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/soil_humidity.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/soil_humidity.png" />
             <view>
                 <view class="data_card_title">
                     土壤湿度
@@ -134,7 +167,7 @@
 
         <!-- 一氧化碳浓度 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/cogas.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/cogas.png" />
             <view>
                 <view class="data_card_title">
                     CO浓度
@@ -147,7 +180,7 @@
 
         <!-- 烟雾浓度 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/smoggas.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/smoggas.png" />
             <view>
                 <view class="data_card_title">
                     烟雾浓度
@@ -160,7 +193,7 @@
 
         <!-- 火焰 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/fire.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/fire.png" />
             <view>
                 <view class="data_card_title">
                     火焰
@@ -180,7 +213,7 @@
     <view class="data">
         <!-- 风扇 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/fan.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/fan.png" />
             <view>
                 <view class="data_card_title">
                     风扇
@@ -193,7 +226,7 @@
 
         <!-- 加热器 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/heat.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/heat.png" />
             <view>
                 <view class="data_card_title">
                     加热器
@@ -206,7 +239,7 @@
 
         <!-- 加湿器 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/humidification.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/humidification.png" />
             <view>
                 <view class="data_card_title">
                     加湿器
@@ -219,7 +252,7 @@
 
         <!-- 水泵 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/pumpin.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/pumpin.png" />
             <view>
                 <view class="data_card_title">
                     水泵
@@ -232,7 +265,7 @@
 
         <!-- 抽水泵 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/pumpout.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/pumpout.png" />
             <view>
                 <view class="data_card_title">
                     抽水器
@@ -245,7 +278,7 @@
 
         <!-- 蜂鸣器 -->
         <view class="data_card">
-            <image class="data_card_icon" src="/static/buzzer.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/buzzer.png" />
             <view>
                 <view class="data_card_title">
                     蜂鸣器
@@ -264,7 +297,7 @@
     
     <view class="data">
         <view class="data_card">
-            <image class="data_card_icon" src="/static/temperaturesetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/temperaturesetting.png" />
             <view>
                 <view class="data_card_title">
                     温度上限
@@ -276,7 +309,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/temperaturesetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/temperaturesetting.png" />
             <view>
                 <view class="data_card_title">
                     温度下限
@@ -288,7 +321,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/humiditysetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/humiditysetting.png" />
             <view>
                 <view class="data_card_title">
                     湿度上限
@@ -300,7 +333,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/humiditysetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/humiditysetting.png" />
             <view>
                 <view class="data_card_title">
                     湿度下限
@@ -312,7 +345,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/soil_humiditysetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/soil_humiditysetting.png" />
             <view>
                 <view class="data_card_title">
                     土湿上限
@@ -324,7 +357,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/soil_humiditysetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/soil_humiditysetting.png" />
             <view>
                 <view class="data_card_title">
                     土湿下限
@@ -336,7 +369,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/cosetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/cosetting.png" />
             <view>
                 <view class="data_card_title">
                     CO上限
@@ -348,7 +381,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/smoggassetting.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/smoggassetting.png" />
             <view>
                 <view class="data_card_title">
                     烟雾上限
@@ -362,18 +395,30 @@
 
     <!-- 鸟类识别 -->
     <view class="threshoil_title">
-        <text>识别鸟类</text>
+        <text>信息预警</text>
     </view>
 
-    <view class="bird_data">
-        <view class="bird_card">
-            <image class="bird_card_icon" src="/static/bird.png" />
+    <view class="waring_data">
+        <view class="waring_card">
+            <image class="waring_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/bird.png" />
             <view>
-                <view class="bird_card_title">
+                <view class="waring_card_title">
                     鸟
                 </view>
-                <view class="bird_card_value">
+                <view class="waring_card_value">
                     {{ bird === 1 ? '有鸟' : '无鸟' }}
+                </view>
+            </view>
+        </view>
+
+        <view class="waring_card">
+            <image class="waring_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/waring.png" />
+            <view>
+                <view class="waring_card_title">
+                    病虫害
+                </view>
+                <view class="waring_card_value">
+                    {{waringType}}
                 </view>
             </view>
         </view>
@@ -386,7 +431,7 @@
 
     <view class="data">
         <view class="data_card">
-            <image class="data_card_icon" src="/static/somewhere_temperature.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/somewhere_temperature.png" />
             <view>
                 <view class="data_card_title">
                     任意温度
@@ -398,7 +443,7 @@
         </view>
 
         <view class="data_card">
-            <image class="data_card_icon" src="/static/somewhere_humidity.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/somewhere_humidity.png" />
             <view>
                 <view class="data_card_title">
                     任意湿度
@@ -410,7 +455,7 @@
         </view>
 
         <view class="data_card" bindtap="onAddDevice">
-            <image class="data_card_icon" src="/static/add.png" />
+            <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/add.png" />
             <view>
                 <view class="add_card_title">
                     添加设备

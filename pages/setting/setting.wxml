@@ -2,10 +2,49 @@
 
 <view class="page-container">
     <view class="data_setting">
+        <!-- 大棚参数设置 -->
+        <view class="data_card">
+            <view class="title_container">
+                <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/warmhouse.png" />
+                <view class="data_card_title">
+                    大棚参数设置
+                </view>
+            </view>
+
+            <view class="values_container">
+                <view class="data_card_max">
+                    <view class="title-with-icon">
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/corp.png" />
+                        <view class="card_title">
+                            农作物种植种类
+                        </view>
+                    </view>
+
+                    <view class="input-container">
+                        <input class="input-field" type="digit" placeholder="请输入农作物种植的种类" bindinput="handleInput" data-type="corpType" />
+                    </view>
+                </view>
+
+                <view class="data_card_min">
+                    <view class="title-with-icon">
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/time.png" />
+                        <view class="data_card_title">
+                            参数更新间隔
+                        </view>
+                    </view>
+
+                    <view class="input-container">
+                        <input class="input-field" type="digit" placeholder="请输入参数更新的间隔" bindinput="handleInput" data-type="updata_time" />
+                        <text>s</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
         <!-- 温度阈值设置 -->
         <view class="data_card">
             <view class="title_container">
-                <image class="data_card_icon" src="/static/temperaturesetting.png" />
+                <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/temperaturesetting.png" />
                 <view class="data_card_title">
                     温度阈值设置
                 </view>
@@ -14,7 +53,7 @@
             <view class="values_container">
                 <view class="data_card_max">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/maxvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/maxvalue.png" />
                         <view class="card_title">
                             温度最高值
                         </view>
@@ -28,7 +67,7 @@
 
                 <view class="data_card_min">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/minvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/minvalue.png" />
                         <view class="data_card_title">
                             温度最低值
                         </view>
@@ -45,7 +84,7 @@
         <!-- 湿度设置 -->
         <view class="data_card">
              <view class="title_container">
-                <image class="data_card_icon" src="/static/humiditysetting.png" />
+                <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/humiditysetting.png" />
                 <view class="data_card_title">
                     湿度阈值设置
                 </view>
@@ -53,7 +92,7 @@
 	    <view class="values_container">
             	<view class="data_card_max">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/maxvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/maxvalue.png" />
                         <view class="card_title">
                             湿度最高值
                         </view>
@@ -66,7 +105,7 @@
                 </view>
                     <view class="data_card_min">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/minvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/minvalue.png" />
                         <view class="data_card_title">
                             湿度最低值
                         </view>
@@ -83,7 +122,7 @@
         <!-- 土壤湿度设置 -->
         <view class="data_card">
             <view class="title_container">
-                <image class="data_card_icon" src="/static/soil_humiditysetting.png" />
+                <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/soil_humiditysetting.png" />
                 <view class="data_card_title">
                     土壤湿度阈值设置
                 </view>
@@ -92,7 +131,7 @@
             <view class="values_container">
                 <view class="data_card_max">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/maxvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/maxvalue.png" />
                         <view class="card_title">
                             土壤湿度最高值
                         </view>
@@ -106,7 +145,7 @@
 
                 <view class="data_card_min">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/minvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/minvalue.png" />
                         <view class="data_card_title">
                             土壤湿度最低值
                         </view>
@@ -123,7 +162,7 @@
        <!-- 一氧化碳浓度设置 -->
        <view class="data_card">
             <view class="title_container">
-                <image class="data_card_icon" src="/static/cosetting.png" />
+                <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/cosetting.png" />
                 <view class="data_card_title">
                     一氧化碳浓度阈值设置
                 </view>
@@ -132,7 +171,7 @@
             <view class="alone_values_container">
                 <view class="data_card_max">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/maxvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/maxvalue.png" />
                         <view class="alone_card_title">
                             一氧化碳浓度最高值
                         </view>
@@ -149,7 +188,7 @@
         <!-- 烟雾浓度设置 -->
         <view class="data_card">
             <view class="title_container">
-                <image class="data_card_icon" src="/static/smoggassetting.png" />
+                <image class="data_card_icon" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/smoggassetting.png" />
                 <view class="data_card_title">
                     烟雾浓度阈值设置
                 </view>
@@ -158,7 +197,7 @@
             <view class="alone_values_container">
                 <view class="data_card_max">
                     <view class="title-with-icon">
-                        <image class="data_card_value" src="/static/maxvalue.png" />
+                        <image class="data_card_value" src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/maxvalue.png" />
                         <view class="alone_card_title">
                            烟雾浓度最高值
                         </view>

@@ -9,6 +9,10 @@ Page({
         current: 0,
         pages: ['page1', 'page2', 'page3'],
 
+        corp : 0 , // 种植类型
+        cropType: '未知', // 用于存储转换后的种植类型
+        updata_time: 1.0, // 更新间隔
+
         temperature: 0.0, // 温度
         humidity: 0.0, // 湿度
         soil_humidity: 0.0, // 土壤湿度
@@ -34,9 +38,90 @@ Page({
         smoggas_value: 0.0, // 烟雾浓度
 
         bird: 0, // 鸟
+        waring: 0, // 病虫害
+        waringType: '无', // 用于存储转换后的病虫害类型
 
         somewhere_temperature: 0.0, // 任意地方温度
         somewhere_humidity: 0.0, // 任意地方湿度
+    },
+
+    // 转换函数
+    getCropType: function(corp) {
+        switch(corp) {
+            case 1:
+                return '玉米';
+            case 2:
+                return '小麦';
+            case 3:
+                return '水稻';
+            case 4:
+                return '高粱';
+            case 5:
+                return '大豆';
+            default:
+                return '未知';
+        }
+    },
+
+    updateCropType: function() {
+        this.setData({
+          cropType: this.getCropType(this.data.corp)
+        });
+    },
+
+    getWaringType: function(waring) {
+        switch(waring) {
+            case 0:
+                return '无';
+            case 1:
+                return '小麦根冠腐病';
+            case 2:
+                return '小麦叶锈病';
+            case 3:
+                return '小麦白粉病';
+            case 4:
+                return '小麦散黑穗病';
+            case 5:
+                return '小麦蚜虫';
+            case 6:
+                return '小麦胞囊线虫';
+            case 7:
+                return '小麦红蜘蛛';
+            case 8:
+                return '小麦赤霉病';
+            case 9:
+                return '小麦纹枯病';
+            case 10:
+                return '小麦茎腐病';
+            case 11:
+                return '小麦全蚀病';
+            case 12:
+                return '玉米花叶病';
+            case 13:
+                return '玉米叶斑病';
+            case 14:
+                return '玉米叶锈病';
+            case 15:
+                return '玉米灰斑病';
+            case 16:
+                return '水稻细菌性叶枯病';
+            case 17:
+                return '水稻稻褐斑病';
+            case 18:
+                return '水稻稻瘟病';
+            case 19:
+                return '水稻叶瘟病';
+            case 20:
+                return '水稻害虫';
+            default:
+                return '未知';
+        }
+    },
+
+    updateWaringType: function() {
+        this.setData({
+            waringType: this.getWaringType(this.data.waring)
+        });
     },
 
     // 轮播图滑动监听
@@ -66,7 +151,18 @@ Page({
     onLoad: function() {
         this.fetchLocationAndWeather();
         this.doConnect();
+        this.updateCropType(); // 确认输出初始值
+        this.updateWaringType(); // 确认输出初始值
+        // this.setData({
+        //     corp: 1 // 测试值
+        //   });
+        // this.updateCropType();
+        // console.log("种植类型:", this.data.cropType); // 确认输出
         app.globalData.homeData = {
+            corp : 0 , // 种植类型
+            cropType: '未知', // 用于存储转换后的种植类型
+            updata_time: 1.0, // 更新间隔
+
             temperature: 0, // 温度
             humidity: 0, // 湿度
             soil_humidity: 0, // 土壤湿度
@@ -84,6 +180,8 @@ Page({
             smoggas_value: 0, // 烟雾浓度
 
             bird: 0, // 鸟
+            waring: 0, // 病虫害
+            waringType: '无', // 用于存储转换后的病虫害类型
 
             /* 状态'1'表示打开，'0'表示关闭 */
             fan: 0, // 风扇状态
@@ -98,6 +196,11 @@ Page({
         };
         this.fetchLocationAndWeather();
         this.doConnect();
+    },
+
+    onShow: function() {
+        this.updateCropType(); // 确认输出更新值
+        this.updateWaringType(); // 确认输出更新值
     },
 
     fetchLocationAndWeather: function() {
@@ -163,6 +266,9 @@ Page({
 
                 if (msgObj && msgObj.items) {
                     _this.setData({
+                        corp: msgObj.items.corp ? msgObj.items.corp.value : _this.data.corp,
+                        waring: msgObj.items.waring ? msgObj.items.waring.value : _this.data.waring,
+                        updata_time: msgObj.items.updata_time ? msgObj.items.updata_time.value : _this.data.updata_time,
                         temperature: msgObj.items.temperature ? msgObj.items.temperature.value : _this.data.temperature,
                         humidity: msgObj.items.humidity ? msgObj.items.humidity.value : _this.data.humidity,
                         soil_humidity: msgObj.items.soil_humidity ? msgObj.items.soil_humidity.value : _this.data.soil_humidity,
@@ -174,7 +280,14 @@ Page({
                         somewhere_humidity: msgObj.items.somewhere_humidity ? msgObj.items.somewhere_humidity.value : _this.data.somewhere_humidity,
                     });
 
+                    _this.updateCropType(); // 更新种植类型显示
+                    _this.updateWaringType(); // 更新病虫害类型显示
+
                     const newState = {
+                        corp: msgObj.items.corp ? msgObj.items.corp.value : _this.data.corp,
+                        waring: msgObj.items.waring ? msgObj.items.waring.value : _this.data.waring,
+                        updata_time: msgObj.items.updata_time ? msgObj.items.updata_time.value : _this.data.updata_time,
+
                         fan: msgObj.items.fan ? msgObj.items.fan.value : _this.data.fan,
                         heat: msgObj.items.heat ? msgObj.items.heat.value : _this.data.heat,
                         humidification: msgObj.items.humidification ? msgObj.items.humidification.value : _this.data.humidification,
@@ -202,6 +315,10 @@ Page({
                     _this.setData(newState);
                 } else if (msgObj && msgObj.params) {
                     _this.setData({
+                        corp: msgObj.params.corp || _this.data.corp,
+                        waring: msgObj.params.waring || _this.data.waring,
+                        updata_time: msgObj.params.updata_time || _this.data.updata_time,
+
                         fan: msgObj.params.fan !== undefined ? msgObj.params.fan : _this.data.fan,
                         heat: msgObj.params.heat !== undefined ? msgObj.params.heat : _this.data.heat,
                         humidification: msgObj.params.humidification !== undefined ? msgObj.params.humidification : _this.data.humidification,
@@ -218,10 +335,19 @@ Page({
                         cogas_value: msgObj.params.cogas_value || _this.data.cogas_value,
                         smoggas_value: msgObj.params.smoggas_value || _this.data.smoggas_value,
                     });
+
+                    _this.updateCropType(); // 更新种植类型显示
+                    _this.updateWaringType(); // 更新病虫害类型显示
                 } else {
                     console.error('消息中不包含期望的数据或 params 对象未定义');
                 }
                 app.globalData.homeData = {
+                    corp: _this.data.corp, // 种植类型
+                    cropType: _this.data.cropType, // 用于存储转换后的种植类型
+                    waring: _this.data.waring, // 病虫害类型
+                    waringType: _this.data.waringType, // 用于存储转换后的病虫害类型
+                    updata_time: _this.data.updata_time, // 更新间隔
+
                     temperature: _this.data.temperature, // 温度
                     humidity: _this.data.humidity, // 湿度
                     soil_humidity: _this.data.soil_humidity, // 土壤湿度

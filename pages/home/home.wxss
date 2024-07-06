@@ -63,6 +63,14 @@
     margin-top: 10rpx;
 }
 
+.data .data_card view {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 内容右对齐 */
+    text-align: right; /* 确保文本右对齐 */
+    min-width: 60rpx;
+}
+
 .data .data_card .data_card_icon{
     margin-top: 18rpx;
     height: 72rpx;
@@ -72,6 +80,13 @@
 .data .data_card .data_card_title{
     font-size: 35rpx;
     color: #7f7f7f;
+}
+
+.data .data_card .data_card_corp_value{
+    font-size: 35rpx;
+    font-weight: bold;
+    color: #7f7f7f;
+    min-width: 60rpx;
 }
 
 .data .data_card .data_card_value{
@@ -89,7 +104,7 @@
     font-weight: bold;
 }
 
-.bird_data {
+.waring_data {
     margin-top: 40rpx;
     display: grid;
     justify-content: center;
@@ -99,7 +114,7 @@
     margin-bottom: 20rpx;
 }
 
-.bird_card {
+.waring_card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
     border-radius: 40rpx;
@@ -111,18 +126,26 @@
     margin-top: 10rpx;
 }
 
-.bird_card_icon {
+.waring_card view {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 内容右对齐 */
+    text-align: right; /* 确保文本右对齐 */
+    min-width: 60rpx;
+}
+
+.waring_card_icon {
     margin-top: 18rpx;
     height: 90rpx;
     width: 120rpx;
 }
 
-.bird_card_title {
+.waring_card_title {
     font-size: 40rpx;
     color: #7f7f7f;
 }
 
-.bird_card_value {
+.waring_card_value {
     font-size: 48rpx;
     font-weight: bold;
     color: #7f7f7f;

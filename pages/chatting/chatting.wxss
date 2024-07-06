@@ -4,10 +4,6 @@ page {
     background-color: #f1f1f1;
 }
 
-.button_container {
-    margin-top: 20rpx;
-}
-
 .scroll-list {
     padding-bottom: 120rpx;
 }
@@ -105,25 +101,25 @@ page {
 }
 
 .input-box {
-    flex: 5;
+    flex: 1;
     border: 1rpx solid #f1f1f1;
     border-radius: 10rpx;
+    margin: 10rpx;
 }
 
 .send-btn {
-    flex: 1;
-    text-align: center;
-    margin-left: 10rpx;
-    color: white;
-    margin-top: 10rpx;
+    margin-right: 10rpx;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 10rpx;
 }
 
-/* 发送按钮 */
 .send-text {
     background-color: #0e932e;
     font-size: 30rpx;
     border-radius: 15rpx;
-    padding: 12rpx 20rpx;
+    padding: 15rpx 20rpx;
+    color: white;
 }
 
 .text-area {
@@ -143,4 +139,99 @@ page {
     width: 0;
     height: 0;
     color: transparent;
+}
+
+.flex-wrap {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-center {
+    align-items: center;
+}
+
+.flex-c-center {
+    justify-content: center;
+}
+
+.tools {
+    position: fixed;
+    background: #f8f8f8;
+    bottom: 0;
+    box-shadow: 0rpx 0rpx 20rpx rgba(0, 0, 0, 0.08);
+    width: 100%;
+    transition: all ease-out .3s;
+}
+
+.tools_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    padding-top: 15rpx;
+}
+
+.reply_panel_wrp {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.reply_panel {
+    height: 200px;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 300px;
+    -webkit-transition: top ease-out .4s;
+    transition: top ease-out .4s;
+}
+
+  .reply_panel[hidden] {
+    display: block;
+}
+
+.reply_panel.show {
+    height: 300px;
+    top: 0;
+}
+
+.swiper-item {
+    box-sizing: border-box;
+    padding: 30rpx 50rpx;
+}
+
+.tool-view {
+    width: 130rpx;
+    height: 130rpx;
+    background: #fefefe;
+    border-radius: 14rpx;
+}
+
+.item {
+    margin-right: 45rpx;
+}
+
+.item:nth-child(4) {
+    margin-right: 0;
+}
+
+.img {
+    width: 70rpx;
+    height: 70rpx;
+}
+.fsize-26 {
+    font-size: 26rpx;
+}
+
+.fcolor-666 {
+    color: #666;
+}
+
+.mt15 {
+    margin-top: 15rpx;
 }

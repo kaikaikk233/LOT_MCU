@@ -1,9 +1,5 @@
 <!-- pages/chatting/chatting.wxml -->
 
-<view class="button_container">
-    <button class="clean" type="primary" bindtap="clearHistory">清除历史聊天记录</button>
-</view>
-
 <view class="scroll-list">
     <block wx:for="{{chatList}}" wx:key="item">
         <view class="{{item.msgId==login.id?'row row-self':'row'}}">
@@ -28,8 +24,33 @@
                 confirm-hold="{{true}}" hold-keyboard="{{true}}" auto-height="false" placeholder="请输入您要发送的消息" bindinput="inputClick" value="{{content}}">
             </textarea>
         </view>
-        <view class="send-btn" wx:if="{{content!=''}}">
-            <text class="send-text" bindtap="sendClick">发 送</text>
+        
+        <view wx:if="{{content === ''}}" class="tools_icon" bindtap="">
+            <image src="https://picture-lsz.oss-cn-shanghai.aliyuncs.com/wechat/static/add.png" style="width: 55rpx; height: 55rpx;" class="add-icon" bindtap="showFunction"></image>
+        </view>
+
+        <view wx:if="{{content !== ''}}" class="send-btn" bindtap="sendClick">
+            <text class="send-text">发 送</text>
+        </view>
+    </view>
+
+    <view class="reply_panel_wrp" style="height: {{keyboardHeight ? keyboardHeight : emojiShow ? 300 : 200}}px;" hidden="{{!emojiShow && !functionShow}}">
+        <view class="reply_panel {{functionShow ? 'show': ''}}" hidden="{{!functionShow}}">
+            <swiper indicator-dots="{{false}}" indicator-color="#bbbbbb" style="height: 160px" indicator-active-color="#8c8c8c">
+                <swiper-item class="swiper-item flex-wrap">
+                    <block wx:for="{{menuList}}" wx:key="index">
+                        <view class="flex-wrap flex-column flex-center item" data-type="{{item.type}}" bindtap="menuFun">
+                            <view class="flex-wrap flex-center flex-c-center tool-view">
+                                <image class="img" src="{{item.icon}}">
+                                </image>
+                            </view>
+                            <view class="fsize-26 fcolor-666 mt15">
+                                {{item.text}}
+                            </view>
+                        </view>
+                    </block>
+                </swiper-item>
+            </swiper>
         </view>
     </view>
 </view>
